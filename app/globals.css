@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-primary: #135bec;
+  --color-primary-glow: rgba(19, 91, 236, 0.4);
+  --color-background: #0a0e17;
+  --color-background-accent: #111827;
+  --color-neon-blue: #00f2ff;
+  --color-neon-purple: #bc13fe;
+  --color-terminal-green: #10b981;
+  --color-terminal-red: #ef4444;
+  
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-fira-code);
+
+  --animate-scanline: scanline 8s linear infinite;
+  --animate-blink: blink 1s step-end infinite;
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes scanline {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+  }
+  @keyframes blink {
+    from, to { opacity: 1; }
+    50% { opacity: 0; }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+}
+
+:root {
+  --background: #0a0e17;
+  --foreground: #e2e8f0;
+  --grid-color: rgba(19, 91, 236, 0.05);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Base Terminal Styling */
+.terminal-window {
+  @apply bg-background-accent/80 backdrop-blur-md border border-primary/20 rounded-lg overflow-hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5), 0 0 10px rgba(19, 91, 236, 0.1);
+}
+
+.terminal-header {
+  @apply bg-primary/10 border-b border-primary/20 px-4 py-2 flex items-center gap-2;
+}
+
+.terminal-body {
+  @apply p-4 font-mono text-sm leading-relaxed;
+}
+
+/* Grid Overlay */
+.grid-overlay {
+  background-image: linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 30px 30px;
+  pointer-events: none;
+}
+
+/* Scanline Effect */
+.scanline {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to bottom, transparent, rgba(19, 91, 236, 0.1), transparent);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  pointer-events: none;
+}
+
+/* Glassmorphism */
+.glass-panel {
+  @apply bg-white/5 backdrop-blur-xl border border-white/10;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/30 rounded-full hover:bg-primary/50 transition-colors;
+}
+
+/* Selection */
+::selection {
+  @apply bg-primary/30 text-white;
+}
+
+.glow-text {
+  text-shadow: 0 0 10px rgba(19, 91, 236, 0.5);
+}
+
+.glow-border {
+  box-shadow: 0 0 15px rgba(19, 91, 236, 0.2);
+}
