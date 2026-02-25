@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Fira_Code } from "next/font/google";
 import "./globals.css";
+import { GlobalEffects } from "@/components/system-ui/GlobalEffects";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -13,9 +14,21 @@ const firaCode = Fira_Code({
 });
 
 export const metadata: Metadata = {
-  title: "Ayush Kalathiya | Systems Architect",
-  description: "Futuristic developer portfolio and system dashboard of Ayush Kalathiya, a Systems Architect and Developer.",
-  keywords: ["Ayush Kalathiya", "Developer", "Systems Architect", "Portfolio", "Next.js", "TypeScript"],
+  title: "Ayush Kalathiya | Systems Architect & Full-Stack Developer",
+  description: "Futuristic developer portfolio and system dashboard of Ayush Kalathiya — a Systems Architect building resilient digital infrastructures.",
+  keywords: ["Ayush Kalathiya", "Developer", "Systems Architect", "Portfolio", "Next.js", "TypeScript", "Full-Stack"],
+  authors: [{ name: "Ayush Kalathiya" }],
+  openGraph: {
+    title: "Ayush Kalathiya | Systems Architect",
+    description: "Futuristic developer portfolio featuring real-time GitHub analytics, interactive terminal, and system-interface UI.",
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ayush Kalathiya | Systems Architect",
+    description: "Futuristic developer portfolio with real-time system metrics.",
+  },
 };
 
 export default function RootLayout({
@@ -35,8 +48,10 @@ export default function RootLayout({
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none" />
           <div className="scanline animate-scanline" />
         </div>
-        
-        {children}
+
+        <GlobalEffects>
+          {children}
+        </GlobalEffects>
       </body>
     </html>
   );

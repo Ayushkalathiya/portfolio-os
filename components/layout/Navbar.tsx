@@ -6,6 +6,7 @@ import { CONFIG } from "@/lib/config/site";
 import { Terminal, Activity, Wifi, Cpu, Clock } from "lucide-react";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { useSystemMetrics, formatUptime } from "@/lib/hooks/useSystemMetrics";
+import { useEasterEggs } from "@/lib/hooks/useEasterEggs";
 
 export const Navbar = () => {
     const pathname = usePathname();
@@ -16,6 +17,7 @@ export const Navbar = () => {
         restDelta: 0.001,
     });
     const metrics = useSystemMetrics();
+    const { handleSecretClick } = useEasterEggs();
 
     const navLinks = [
         { label: "dashboard", href: "/" },
@@ -27,7 +29,7 @@ export const Navbar = () => {
     return (
         <header className="fixed top-0 left-0 right-0 z-40 bg-background/60 backdrop-blur-xl border-b border-primary/20 h-16 flex items-center px-6">
             <div className="flex items-center gap-2 mr-8">
-                <Terminal className="w-5 h-5 text-primary" />
+                <Terminal className="w-5 h-5 text-primary cursor-pointer" onClick={handleSecretClick} />
                 <span className="font-mono font-bold text-sm uppercase tracking-tighter hidden sm:inline">
                     {CONFIG.name.toLowerCase().replace(" ", ".")}
                 </span>
@@ -39,8 +41,8 @@ export const Navbar = () => {
                         key={link.href}
                         href={link.href}
                         className={`font-mono text-xs uppercase tracking-widest transition-colors relative py-2 whitespace-nowrap ${pathname === link.href
-                                ? "text-primary"
-                                : "text-slate-400 hover:text-primary"
+                            ? "text-primary"
+                            : "text-slate-400 hover:text-primary"
                             }`}
                     >
                         {link.label}

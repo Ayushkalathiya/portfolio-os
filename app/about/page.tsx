@@ -31,8 +31,8 @@ export default function About() {
                                     </div>
                                 </div>
                                 <div className="font-mono text-[10px] text-slate-500 space-y-1">
-                                    <div>ID: ARCH_AK_01</div>
-                                    <div>LEVEL: SENIOR_ARCHITECT</div>
+                                    <div className="text-primary font-bold">STATUS: {CONFIG.status}</div>
+                                    <div>ROLE: {CONFIG.role.toUpperCase()}</div>
                                     <div suppressHydrationWarning>LAST_SYNC: {new Date().toLocaleDateString()}</div>
                                 </div>
                             </div>
@@ -41,7 +41,7 @@ export default function About() {
                                 <div>
                                     <h2 className="text-primary font-mono text-sm uppercase mb-2">Identification_Summary</h2>
                                     <p className="text-slate-300 text-sm leading-relaxed">
-                                        Ayush Kalathiya is a high-performance developer entity specialized in building scalable, secure, and visually immersive systems. With a core focus on the Next.js ecosystem and high-redundancy architecture, I deliver full-stack solutions that operate at the edge of modern technology.
+                                        {CONFIG.name} is a high-performance developer entity specialized in building scalable, secure, and visually immersive systems. Currently pursuing a {CONFIG.education.degree} at {CONFIG.education.institution}, delivering award-winning full-stack solutions that operate at the edge of modern technology.
                                     </p>
                                 </div>
 
@@ -117,6 +117,44 @@ export default function About() {
                                             <span className="text-xs text-slate-400 group-hover:text-white transition-colors uppercase font-mono tracking-wider">{skill}</span>
                                         </div>
                                     ))}
+                                </div>
+                            </TerminalCard>
+                        ))}
+                    </div>
+                </section>
+
+                {/* Education Matrix */}
+                <section className="space-y-6">
+                    <div className="flex items-center gap-3">
+                        <div className="w-1.5 h-6 bg-primary glow-border" />
+                        <h2 className="text-xl font-mono font-bold tracking-tight uppercase">Knowledge_Base Matrix</h2>
+                    </div>
+                    <TerminalCard title="academic_records">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-4">
+                            <div>
+                                <h3 className="text-primary font-bold text-sm mb-1">{CONFIG.education.degree}</h3>
+                                <p className="text-slate-400 text-xs font-mono">{CONFIG.education.institution}</p>
+                            </div>
+                            <div className="md:text-right font-mono text-xs text-slate-500 space-y-1">
+                                <div><span className="text-primary">CGPA:</span> {CONFIG.education.cgpa}</div>
+                                <div><span className="text-primary">TIMEFRAME:</span> {CONFIG.education.period}</div>
+                            </div>
+                        </div>
+                    </TerminalCard>
+                </section>
+
+                {/* Achievements */}
+                <section className="space-y-6">
+                    <div className="flex items-center gap-3">
+                        <div className="w-1.5 h-6 bg-primary glow-border" />
+                        <h2 className="text-xl font-mono font-bold tracking-tight uppercase">System_Achievements</h2>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {CONFIG.achievements.map((achievement, idx) => (
+                            <TerminalCard key={idx} title={`achievement_0${idx + 1}`}>
+                                <div className="p-4 flex gap-3 text-sm text-slate-300">
+                                    <span className="text-primary">🏆</span>
+                                    <span>{achievement}</span>
                                 </div>
                             </TerminalCard>
                         ))}

@@ -45,6 +45,14 @@ export default function Home() {
                 <Link href="/contact" className="flex items-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 px-6 py-3 rounded text-sm font-mono transition-all">
                   ESTABLISH_CONNECTION
                 </Link>
+                <a
+                  href={CONFIG.socials.resume}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 bg-primary/10 hover:bg-primary/20 border border-primary/30 px-6 py-3 rounded text-sm font-mono transition-all text-primary"
+                >
+                  DOWNLOAD_CV
+                </a>
               </div>
             </div>
           </TerminalCard>
@@ -111,19 +119,30 @@ export default function Home() {
 
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { icon: Shield, label: "Security", val: "ACTIVE" },
-                  { icon: Server, label: "Nodes", val: "STABLE" },
-                  { icon: Code, label: "Protocols", val: "v2.0.4" },
-                  { icon: Zap, label: "Performance", val: "OPTIMIZED" }
-                ].map((stat, i) => (
-                  <div key={i} className="bg-primary/5 border border-primary/10 p-3 rounded flex flex-col gap-2">
-                    <stat.icon className="w-4 h-4 text-primary" />
-                    <div>
-                      <div className="text-[8px] text-slate-500 uppercase tracking-widest">{stat.label}</div>
-                      <div className="text-[10px] text-primary font-bold">{stat.val}</div>
+                  { icon: Shield, label: "Security", val: "ACTIVE", href: "" },
+                  { icon: Server, label: "Nodes", val: "STABLE", href: "" },
+                  { icon: Code, label: "Protocols", val: "v2.0.4", href: "/consistency" },
+                  { icon: Zap, label: "Performance", val: "OPTIMIZED", href: "" }
+                ].map((stat, i) => {
+                  const inner = (
+                    <>
+                      <stat.icon className="w-4 h-4 text-primary" />
+                      <div>
+                        <div className="text-[8px] text-slate-500 uppercase tracking-widest">{stat.label}</div>
+                        <div className="text-[10px] text-primary font-bold">{stat.val}</div>
+                      </div>
+                    </>
+                  );
+                  return stat.href ? (
+                    <Link key={i} href={stat.href} className="bg-primary/5 border border-primary/10 p-3 rounded flex flex-col gap-2 cursor-pointer">
+                      {inner}
+                    </Link>
+                  ) : (
+                    <div key={i} className="bg-primary/5 border border-primary/10 p-3 rounded flex flex-col gap-2">
+                      {inner}
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
 
               <div className="pt-4 border-t border-primary/10">

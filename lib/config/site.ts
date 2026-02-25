@@ -1,39 +1,38 @@
 export const CONFIG = {
     name: "Ayush Kalathiya",
-    role: "Systems Architect / Full Stack Developer",
+    role: "Full Stack Developer",
     status: "ONLINE",
     uptime: "99.99%",
-    location: "Surat, India",
+    location: "Surat, Gujarat, India",
     email: "ayushkalathiya50@gmail.com",
+    phone: "+91-9924122947",
+    education: {
+        degree: "BTech in Computer Engineering",
+        institution: "Charotar University of Science and Technology, Anand",
+        period: "2022 - Present",
+        cgpa: "9.42/10.0"
+    },
     socials: {
         github: "https://github.com/ayushkalathiya",
         linkedin: "https://www.linkedin.com/in/ayush-kalathiya/",
         twitter: "https://twitter.com/ayush_k",
+        resume: "/Resume_AyushKalathiya .pdf",
     },
     projects: [
         {
-            id: "studywise",
-            title: "StudyWise",
-            description: "AI-powered educational platform designed to streamline student learning workflows through intelligent resource management.",
-            tech: ["Next.js", "PostgreSQL", "OpenAI", "Tailwind"],
-            live: "#",
+            id: "spendwise",
+            title: "Spendwise",
+            description: "Financial tracking app for 200+ users. Features expense categorization, budgeting, AI-generated financial advice, OCR bill photo upload, and multilingual chatbot.",
+            tech: ["Next.js", "PostgreSQL", "TailwindCSS", "TypeScript", "Prisma"],
+            live: "https://trackwithspendwise.vercel.app/",
             repo: "#",
             status: "DEPLOYED",
         },
         {
-            id: "spendwise",
-            title: "Spendwise",
-            description: "Financial tracking system with automated expense categorization and predictive budget analysis for personal wealth management.",
-            tech: ["React Native", "Firebase", "D3.js", "Node.js"],
-            live: "#",
-            repo: "#",
-            status: "STABLE",
-        },
-        {
-            id: "graphiq",
-            title: "GraphIQ",
-            description: "Vector-based visualization engine for complex data structures, providing architectural insights into large-scale system clusters.",
-            tech: ["TypeScript", "Three.js", "WebAssembly", "Rust"],
+            id: "studywise",
+            title: "Studywise",
+            description: "Student collaboration platform with AI-powered diagram tool, session scheduler, document sharing, whiteboard, and WebRTC calls with <150ms latency for 100+ users.",
+            tech: ["Next.js", "PostgreSQL", "TailwindCSS", "TypeScript", "Prisma"],
             live: "#",
             repo: "#",
             status: "PRODUCTION",
@@ -42,31 +41,36 @@ export const CONFIG = {
     experience: [
         {
             id: 1,
-            role: "Lead Systems Architect",
-            company: "TechNexus Solutions",
-            period: "2023 - PRESENT",
+            role: "Full Stack Development Intern",
+            company: "Laugh Logic Labs",
+            period: "May 2025 - Jun 2025",
             logs: [
-                "Architected scalable microservices architecture using Go and Kubernetes.",
-                "Reduced system latency by 45% through aggressive caching and DB optimization.",
-                "Implemented end-to-end encryption for sensitive data clusters."
+                "Configured Cloudinary integration for secure storage, optimized delivery, and automated management of images/PDFs.",
+                "Built an automated web scraper for real-time NSE/BSE stock data collection and brokerage analysis."
             ]
         },
         {
             id: 2,
-            role: "Full Stack Developer",
-            company: "InnovaSoft",
-            period: "2021 - 2023",
+            role: "Full Stack Development Intern",
+            company: "Codify Infotech",
+            period: "May 2024 - Jun 2024",
             logs: [
-                "Developed core UI components using Next.js and Framer Motion.",
-                "Integrated third-party APIs for real-time data synchronization.",
-                "Mentored junior developers on best practices in system design."
+                "Orchestrated and maintained full-stack web applications using React.js, Next.js, and Node.js.",
+                "Developed RESTful APIs, implemented authentication, and managed databases using Prisma ORM with PostgreSQL."
             ]
         }
     ],
     skills: [
-        { category: "CORE_SYSTEMS", items: ["React", "Next.js", "TypeScript", "Node.js"] },
-        { category: "CLOUD_INFRA", items: ["AWS", "Docker", "Kubernetes", "Terraform"] },
-        { category: "DATABASES", items: ["PostgreSQL", "Redis", "MongoDB", "Elasticsearch"] },
-        { category: "TOOLS_PROTOCOLS", items: ["Git", "gRPC", "GraphQL", "WebSockets"] }
+        { category: "LANGUAGES", items: ["TypeScript", "JavaScript", "Java"] },
+        { category: "FRONTEND", items: ["React.js", "Next.js", "Redux", "Zustand", "TailwindCSS"] },
+        { category: "BACKEND", items: ["Node.js", "Express.js", "Prisma", "WebSockets", "Redis"] },
+        { category: "DATABASE", items: ["PostgreSQL", "MongoDB"] },
+        { category: "TOOLS", items: ["Docker", "Git", "GitHub"] }
+    ],
+    achievements: [
+        "Winner, InnoTech 1.0 Hackathon (1st among 100+ participants)",
+        "1st Runner-up, Breach 2025 - The Fintech Hackathon (PDEU)",
+        "Winner, Solution Challenge 2024 (Spendwise)",
+        "Top 7, OdooxCHARUSAT Hackathon (out of 75 teams, 250+ participants)"
     ]
 };
