@@ -5,6 +5,7 @@ import { TerminalCard } from "@/components/terminal/TerminalCard";
 import { Typewriter } from "@/components/terminal/Typewriter";
 import { CONFIG } from "@/lib/config/site";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Database, Layout, Layers, Box, Cpu, HardDrive } from "lucide-react";
 
 export default function About() {
@@ -21,13 +22,32 @@ export default function About() {
                     <TerminalCard title="profile_metadata">
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 p-4">
                             <div className="space-y-4">
-                                <div className="aspect-square bg-primary/5 border border-primary/20 rounded-lg flex items-center justify-center relative overflow-hidden group">
-                                    <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                                    <Cpu className="w-16 h-16 text-primary/40 group-hover:text-primary/60 transition-colors" />
-                                    <div className="absolute bottom-2 left-2 flex gap-1">
-                                        <div className="w-1 h-1 bg-primary rounded-full animate-pulse" />
-                                        <div className="w-1 h-1 bg-primary rounded-full animate-pulse delay-75" />
-                                        <div className="w-1 h-1 bg-primary rounded-full animate-pulse delay-150" />
+                                {/* Avatar with terminal frame */}
+                                <div className="relative group">
+                                    {/* Outer glow ring */}
+                                    <div className="absolute -inset-1 rounded-xl bg-primary/20 blur-md opacity-0 group-hover:opacity-100 transition-all duration-500" />
+                                    {/* Terminal border frame */}
+                                    <div className="relative aspect-square rounded-xl border border-primary/40 overflow-hidden bg-primary/5">
+                                        <Image
+                                            src={CONFIG.avatar}
+                                            alt={CONFIG.name}
+                                            width={400}
+                                            height={400}
+                                            quality={100}
+                                            className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
+                                        />
+                                        {/* Scan overlay on hover */}
+                                        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                        {/* Corner brackets */}
+                                        <div className="absolute top-2 left-2 w-4 h-4 border-t-2 border-l-2 border-primary opacity-60" />
+                                        <div className="absolute top-2 right-2 w-4 h-4 border-t-2 border-r-2 border-primary opacity-60" />
+                                        <div className="absolute bottom-2 left-2 w-4 h-4 border-b-2 border-l-2 border-primary opacity-60" />
+                                        <div className="absolute bottom-2 right-2 w-4 h-4 border-b-2 border-r-2 border-primary opacity-60" />
+                                        {/* Online badge */}
+                                        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 bg-background/80 backdrop-blur-sm border border-primary/30 rounded-full px-2.5 py-0.5">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                                            <span className="text-[9px] font-mono text-emerald-400 uppercase">Online</span>
+                                        </div>
                                     </div>
                                 </div>
                                 <div className="font-mono text-[10px] text-slate-500 space-y-1">

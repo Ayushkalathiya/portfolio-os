@@ -7,6 +7,7 @@ import { Terminal, Activity, Wifi, Cpu, Clock } from "lucide-react";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { useSystemMetrics, formatUptime } from "@/lib/hooks/useSystemMetrics";
 import { useEasterEggs } from "@/lib/hooks/useEasterEggs";
+import Image from "next/image";
 
 export const Navbar = () => {
     const pathname = usePathname();
@@ -28,8 +29,19 @@ export const Navbar = () => {
 
     return (
         <header className="fixed top-0 left-0 right-0 z-40 bg-background/60 backdrop-blur-xl border-b border-primary/20 h-16 flex items-center px-6">
-            <div className="flex items-center gap-2 mr-8">
-                <Terminal className="w-5 h-5 text-primary cursor-pointer" onClick={handleSecretClick} />
+            <div className="flex items-center gap-2.5 mr-8">
+                {/* Avatar — visible identity */}
+                <button onClick={handleSecretClick} className="relative w-8 h-8 rounded-full border border-primary/40 overflow-hidden shrink-0 cursor-pointer">
+                    <Image
+                        src={CONFIG.avatar}
+                        alt={CONFIG.name}
+                        width={64}
+                        height={64}
+                        quality={100}
+                        className="object-cover w-full h-full"
+                    />
+                    <div className="absolute bottom-0.5 right-0.5 w-1.5 h-1.5 bg-emerald-400 rounded-full border border-background" />
+                </button>
                 <span className="font-mono font-bold text-sm uppercase tracking-tighter hidden sm:inline">
                     {CONFIG.name.toLowerCase().replace(" ", ".")}
                 </span>

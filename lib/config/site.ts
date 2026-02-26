@@ -12,6 +12,7 @@ export const CONFIG = {
         period: "2022 - Present",
         cgpa: "9.42/10.0"
     },
+    avatar: "/profile.jpg",
     socials: {
         github: "https://github.com/ayushkalathiya",
         linkedin: "https://www.linkedin.com/in/ayush-kalathiya/",
